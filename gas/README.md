@@ -1,6 +1,6 @@
 ## POST URL
 ```
-curl -X POST --data-urlencode "{\"url\": \"URLです\", \"title\": \"タイトルです\", \"description\": \"説明です\"}" <exec_url>
+curl -X POST --data-urlencode "{\"url\": \"URLです\", \"title\": \"GoogleNews\", \"description\": \"説明です\"}" <exec_url>
 ```
 
 

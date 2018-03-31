@@ -21,16 +21,17 @@ global.doPost = (e: any): void => {
 
 global.test_doPost = (e: any): void => {
   const message: Message = {
-    url: 'urldes',
-    title: 'titledes',
-    description: 'descriptiondes'
+    url: 'http://example.com',
+    title: 'titleA',
+    description: 'DOM解析結果'
   };
   doPost(message);
 };
 
 function doPost(message: Message) {
-  const ss = SheetService.writeNewLine(message);
-  if (SheetService.isChangedDescription(ss)) {
+  const sheetService = new SheetService();
+  sheetService.writeNewLine(message);
+  if (sheetService.isChangedDescription(message)) {
     SlackService.postMessage(message);
   }
 }
