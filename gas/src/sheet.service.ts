@@ -1,12 +1,13 @@
 import Spreadsheet = GoogleAppsScript.Spreadsheet.Spreadsheet;
-import { getDayFormat } from './util';
+import { Message } from './model';
 
 export class SheetService {
-  static createInitialFile(prefix: string): Spreadsheet {
-    const fileName = `${prefix} ${getDayFormat()}`;
-    const ss = SpreadsheetApp.create(fileName);
-    const range = ss.getRange('A1');
-    range.setValue('Hello, clasp!');
+  static writeNewLine(message: Message): Spreadsheet {
+    const ss = SpreadsheetApp.getActive();
+    const lastRow = ss.getLastRow();
+    const range = ss.getRange(`A${lastRow}:D${lastRow}`);
+    const now = new Date();
+    range.setValues([[now, message.url, message.title, message.description]]);
     return ss;
   }
 }
