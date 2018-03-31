@@ -37,7 +37,7 @@ export class SheetService {
     const newDescription = sheet.getRange(`D${newRow}`).getValue();
 
     console.log('previousDescription:', previousDescription);
-    console.log('newDescription:', newDescription);
+    console.log('newDescription-----:', newDescription);
 
     return previousDescription != newDescription;
   }
