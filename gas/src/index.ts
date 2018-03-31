@@ -1,6 +1,7 @@
 import TextOutput = GoogleAppsScript.Content.TextOutput;
 import { SheetService } from './sheet.service';
 import { Message } from './model';
+import { SlackService } from './slack.service';
 
 declare const global: any;
 
@@ -11,31 +12,25 @@ global.doGet = (e: any): TextOutput => {
   return output;
 };
 
-global.doPost = (e: any): TextOutput => {
-  console.log(e);
-  console.log(e.parameters);
-  console.log(e.postData.contents);
-  console.log(e.postData.name);
-  var jsonString = decodeURIComponent(e.postData.getDataAsString());
-  console.log(jsonString);
-  var data = JSON.parse(jsonString);
-  console.log(data);
-
-  SheetService.writeNewLine(data);
-
-  var output = ContentService.createTextOutput();
-  output.setMimeType(ContentService.MimeType.JSON);
-  output.setContent('doPost!!!');
-  return output;
+global.doPost = (e: any): void => {
+  console.log('e.postData.getDataAsString():', e.postData.getDataAsString());
+  const jsonString = decodeURIComponent(e.postData.getDataAsString());
+  const message: Message = JSON.parse(jsonString);
+  doPost(message);
 };
 
-
-
 global.test_doPost = (e: any): void => {
-  let message: Message = {
+  const message: Message = {
     url: 'urldes',
     title: 'titledes',
     description: 'descriptiondes'
   };
-  SheetService.writeNewLine(message);
+  doPost(message);
 };
+
+function doPost(message: Message) {
+  const ss = SheetService.writeNewLine(message);
+  if (SheetService.isChangedDescription(ss)) {
+    SlackService.postMessage(message);
+  }
+}
