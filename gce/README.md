@@ -13,13 +13,17 @@ node src/observe-google-news.js
 
 
 # 本番環境構築
+GCEインスタンスを作成しておく  
+(f1-micro, USリージョンで無料)
+
+## SSH
+```
+gcloud config set project <project_id>
+gcloud compute ssh <gce_instance_name>
+```
+
 ## Node インストール
 [Ubuntuに最新のNode.jsを難なくインストールする - Qiita](https://qiita.com/seibe/items/36cef7df85fe2cefa3ea)
-
-
-```
-gcloud compute ssh instance-1
-```
 
 ```
 sudo apt-get update
@@ -36,7 +40,6 @@ sudo ln -sf /usr/local/bin/node /usr/bin/node
 
 node -v
 ```
-
 
 ## Chrome インストール
 [UbuntuにGoogle Chromeを簡単にインストールする方法 | カレリエ](https://www.karelie.net/how-to-install-google-chrome-on-ubuntu/)
@@ -58,18 +61,18 @@ sudo apt-get install google-chrome-stable
 
 ```
 mkdir ~/web-update-notification
+cd ~/web-update-notification
 ```
+
+## ファイルアップロード
+ファイルをアップロード
 
 ## モジュールインストール
-
 ```
-cd ~/web-update-notification
 npm i
-
 ```
 
 ## cron設定
-
 ```
 crontab < crontab.txt
 ```
