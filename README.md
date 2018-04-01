@@ -22,9 +22,12 @@ GAS の scriptId
 ```
 
 ### gas/src/environments.ts
-Slack 通知用の Webhook URL
+スプレッドシートのID, Slack 通知用の Webhook URL, Slack 通知用の チャンネル名
 ```
- export const SLACK_POST_URL = <your_webhook_url>;
+export const SPREAD_SHEET_ID = '1BvYBFE-XD1wpdkGq4R4jtEtVOS7_QkOVirdfYBwxyzQ';
+export const SLACK_POST_URL = <your_webhook_url>;
+export const SLACK_POST_CHANNEL = '#incoming-webhooks';
+
 ```
 
 ### gce/src/shared/notification.service.js
