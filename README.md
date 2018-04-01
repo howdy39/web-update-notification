@@ -32,7 +32,7 @@ GAS を Webアプリとして公開したときの URL
   fetch(<your_doPost_url>, {
 ```
 
-### gce/cron.txt
+### gce/crontab.txt
 自分のディレクトリに変更
 ```
 0 * * * * node /home/howdy39/web-update-notification/src/observe-appmaker-update.js
