@@ -4,11 +4,10 @@ const puppeteer = require('puppeteer');
 const notificationService = require('./shared/notification.service');
 
 const url = 'https://news.google.com/news/?ned=jp&gl=JP&hl=ja';
-const title = 'GoogleNews';
+const title = 'Google News';
 const selector = '.nuEeue.hzdq5d.ME7ew';
 
 (async () => {
-
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(url);
@@ -25,3 +24,4 @@ const selector = '.nuEeue.hzdq5d.ME7ew';
 
   notificationService.postMessage(url, title, result.content);
 })();
+
