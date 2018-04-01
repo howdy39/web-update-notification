@@ -11,7 +11,7 @@ RSS が用意されていないような Web サイトを DOM 解析し、更新
 4. (GAS) スクレイピング結果を受け取り、履歴をスプレッドシートに登録
 5. (GAS) 履歴に変更があったら Slack で通知
 
-![アーキテクチャ](http://github.com/howdy39/web-update-notification/images/architecture.png "アーキテクチャ")
+![アーキテクチャ](https://raw.githubusercontent.com/howdy39/web-update-notification/master/images/architecture.png "アーキテクチャ")
 
 
 # 構築時メモ
