@@ -1,5 +1,6 @@
 # web-update-notification
-ヘッドレス Chrome を利用した Web 更新通知システム。  
+ヘッドレス Chrome と Google Apps Script を利用した Web 更新通知システム
+
 RSS が用意されていないような Web サイトを DOM 解析し、更新情報を取得します。  
 また、取得した値に変更があったら Slack に通知します。
 
