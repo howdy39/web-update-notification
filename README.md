@@ -1,11 +1,12 @@
 # web-update-notification
-Web更新通知システム  
-RSS が用意されていないような WebサイトをDOM解析し、更新情報を取得、変更があったら Slack に通知する。
+ヘッドレス Chrome を利用した Web 更新通知システム。  
+RSS が用意されていないような Web サイトを DOM 解析し、更新情報を取得します。  
+また、取得した値に変更があったら Slack に通知します。
 
 ## 処理フロー
 1. (GCE) cron で定期的に[puppeteer](https://github.com/GoogleChrome/puppeteer)を用いて Web スクレイピング
 2. (GCE) [Google Apps Script(GAS)](https://developers.google.com/apps-script/)で建てた Web サーバーに Post でスクレイピング結果を送信
-3. (GAS) スクレイピング結果を受取、履歴をスプレッドシートに登録
+3. (GAS) スクレイピング結果を受け取り、履歴をスプレッドシートに登録
 4. (GAS) 履歴に変更があったら Slack で通知
 
 
