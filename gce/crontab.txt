@@ -1,0 +1,3 @@
+0 * * * * node /home/howdy39/web-update-notification/src/observe-appmaker-update.js
+1 * * * * node /home/howdy39/web-update-notification/src/observe-gas-update.js
+2 * * * * node /home/howdy39/web-update-notification/src/observe-google-news.js
