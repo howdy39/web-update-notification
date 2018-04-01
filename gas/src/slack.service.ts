@@ -8,7 +8,7 @@ export class SlackService {
     let slackMessage: SlackMessage = {
       channel: SLACK_POST_CHANNEL,
       username: message.title,
-      text: message.description
+      text: [message.description, message.url].join('\n')
     };
     const url = SLACK_POST_URL;
     const options: URLFetchRequestOptions = {
