@@ -5,13 +5,6 @@ import { SlackService } from './slack.service';
 
 declare const global: any;
 
-global.doGet = (e: any): TextOutput => {
-  var output = ContentService.createTextOutput();
-  output.setMimeType(ContentService.MimeType.JSON);
-  output.setContent('doGet!!!5');
-  return output;
-};
-
 global.doPost = (e: any): void => {
   console.log('e.postData.getDataAsString():', e.postData.getDataAsString());
   const jsonString = decodeURIComponent(e.postData.getDataAsString());
