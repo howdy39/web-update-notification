@@ -19,7 +19,7 @@ GCEインスタンスを作成しておく
 ## SSH
 ```
 gcloud config set project <project_id>
-gcloud compute ssh <gce_instance_name>
+gcloud compute ssh USERNAME@<gce_instance_name>
 ```
 
 ## Node インストール
